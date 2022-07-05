@@ -5,20 +5,6 @@ def main():
     print()
     # Quiz_results starts as an empty list. It will store the quiztaker's answer choices.
     quiz_results = []
-  
-    # For a benchmark, the quiztaker is asked which type of shoe they 
-    # like best, and this shoe is their benchmark result.
-    # At the end of the quiz, their result is compared to their benchmark
-    # result, and the answer to each question is evaluated to see whether
-    # it matches the benchmark result. Questions with answers that match the
-    # benchmark result are considered more valid.
-    benchmark = input("What is your favorite type of shoe? " 
-      "A. Brogues or pumps " 
-      "B. Boat shoes or flats "
-      "C. Canvas sneakers " 
-      "D. Sneakers " 
-      "E. Sandals ")
-    benchmark = benchmark.upper()
           
     answer1 = input("It's the weekend! What do you want to do? " 
                     "A. Go to a museum "
@@ -104,8 +90,20 @@ def main():
         E += 1
 
     result = max(A, B, C, D, E)
-    print(result)
-    print(benchmark)
+      # For a benchmark, the quiztaker is asked which type of shoe they 
+    # like best, and this shoe is their benchmark result.
+    # At the end of the quiz, their result is compared to their benchmark
+    # result, and the answer to each question is evaluated to see whether
+    # it matches the benchmark result. Questions with answers that match the
+    # benchmark result are considered more valid.
+    benchmark = input("What is your favorite type of shoe? " 
+      "A. Brogues or pumps " 
+      "B. Boat shoes or flats "
+      "C. Canvas sneakers " 
+      "D. Sneakers " 
+      "E. Sandals ")
+    benchmark = benchmark.upper()
+  
     if result == A:
       print("Brogues and Pumps \n You always look amazing, and you're"
                                   " someone who takes great care in their"
@@ -117,6 +115,8 @@ def main():
       # Match each result to the benchmark to see if the quiz result reflects the user's true shoe preference.
       if benchmark == "A":
         print("Result matches true preference!")
+      else:
+        print("Result does not match true preference")
     elif result == B:
       print("Boat Shoes and Flats \n Your shoes are comfortable and"
                               " they're not flashy or ostentatious. You've got"
@@ -126,6 +126,8 @@ def main():
                               " loved ones, and others in need.")
       if benchmark == "B":
         print("Result matches true preference!")
+      else:
+        print("Result does not match true preference")
       
     elif result == C:
       print("Canvas Sneakers \n You're creative and curious! Your"
@@ -135,6 +137,8 @@ def main():
                           " things.")
       if benchmark == "C":
         print("Result matches true preference!")
+      else:
+        print("Result does not match true preference")
       
     elif result == D:
       print("Sneakers \n Independent and self-sufficient, you"
@@ -144,6 +148,8 @@ def main():
                           " impress others with fancy shoes.")
       if benchmark == "D":
         print("Result matches true preference!")
+      else:
+        print("Result does not match true preference")
       
     else:
       print("Sandals \n Your feet are firmly on the ground:"
@@ -153,6 +159,8 @@ def main():
                           " grounded and thoughtful.")
       if benchmark == "E":
         print("Result matches true preference!")
+      else:
+        print("Result does not match true preference")
 
     # Evaluate which questions had answers that matched the user's true preference. These are considered more valid questions. 
     index = 1
