@@ -1,3 +1,5 @@
+from insights import tallies
+
 def main():
     print("What Shoe Are You? \n A series of multiple choice " 
           "questions will follow. Please respond with the uppercase letter "   
@@ -77,6 +79,7 @@ def main():
     C = 0
     D = 0
     E = 0
+    quiz_data = open("quiz_data.txt", "a")
     for answer in quiz_results:
       if answer == "A":
         A += 1
@@ -88,8 +91,8 @@ def main():
         D += 1
       else:
         E += 1
-
     result = max(A, B, C, D, E)
+    quiz_data.write(f"Result: {result}\n")
       # For a benchmark, the quiztaker is asked which type of shoe they 
     # like best, and this shoe is their benchmark result.
     # At the end of the quiz, their result is compared to their benchmark
@@ -103,7 +106,8 @@ def main():
       "D. Sneakers " 
       "E. Sandals ")
     benchmark = benchmark.upper()
-  
+    quiz_data.write(f"Benchmark: {benchmark}\n")
+
     if result == A:
       print("Brogues and Pumps \n You always look amazing, and you're"
                                   " someone who takes great care in their"
@@ -114,8 +118,10 @@ def main():
                                   " and long-lasting.")
       # Match each result to the benchmark to see if the quiz result reflects the user's true shoe preference.
       if benchmark == "A":
+        quiz_data.write("Result: Match\n")
         print("Result matches true preference!")
       else:
+        quiz_data.write("Result: Not a Match\n")
         print("Result does not match true preference")
     elif result == B:
       print("Boat Shoes and Flats \n Your shoes are comfortable and"
@@ -125,8 +131,10 @@ def main():
                               " be found where you're needed, helping friends,"
                               " loved ones, and others in need.")
       if benchmark == "B":
+        quiz_data.write("Result: Match\n")
         print("Result matches true preference!")
       else:
+        quiz_data.write("Result: Not a Match\n")
         print("Result does not match true preference")
       
     elif result == C:
@@ -136,8 +144,10 @@ def main():
                           " and understanding. You're always open to trying new"
                           " things.")
       if benchmark == "C":
+        quiz_data.write("Result: Match\n")
         print("Result matches true preference!")
       else:
+        quiz_data.write("Result: Not a Match\n")
         print("Result does not match true preference")
       
     elif result == D:
@@ -147,8 +157,10 @@ def main():
                           " -- you wear what's right for you and don't need to"
                           " impress others with fancy shoes.")
       if benchmark == "D":
+        quiz_data.write("Result: Match\n")
         print("Result matches true preference!")
       else:
+        quiz_data.write("Result: Not a Match\n")
         print("Result does not match true preference")
       
     else:
@@ -158,8 +170,10 @@ def main():
                           " help others work through their problems by staying"
                           " grounded and thoughtful.")
       if benchmark == "E":
+        quiz_data.write("Result: Match\n")
         print("Result matches true preference!")
       else:
+        quiz_data.write("Result: Not a Match\n")
         print("Result does not match true preference")
 
     # Evaluate which questions had answers that matched the user's true preference. These are considered more valid questions. 
@@ -167,10 +181,14 @@ def main():
     for answer in quiz_results:
       print(index)
       if answer == benchmark:
+        quiz_data.write(f"Question {index}: Match\n")
         print("Match")
       else:
+        quiz_data.write(f"Question {index}: Not a Match\n")
         print("Not a Match")
       index += 1
+
+    print(tallies)
 
 
 if __name__ == "__main__":
